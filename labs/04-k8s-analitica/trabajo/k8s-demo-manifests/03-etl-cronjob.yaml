@@ -12,7 +12,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: etl
-              image: ghcr.io/miguelangelmcbigdata/docker-k8s-101/etl:latest
+              image: ghcr.io/TU_USUARIO/docker-k8s-101/etl:v1.0.0
               env:
                 - name: DATABASE_URL
                   value: postgresql://analytics:analytics@db:5432/analytics
