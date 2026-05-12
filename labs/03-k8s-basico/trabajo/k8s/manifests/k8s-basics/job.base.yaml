@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: etl-job
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: etl
+          image: ghcr.io/ORG/etl-job:latest
+          command: ["python", "etl.py"]
