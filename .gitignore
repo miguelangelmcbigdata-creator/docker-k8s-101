@@ -292,3 +292,5 @@ data/mysql/sys/x@0024wait_classes_global_by_latency.frm
 data/mysql/sys/x@0024waits_by_host_by_latency.frm
 data/mysql/sys/x@0024waits_by_user_by_latency.frm
 data/mysql/sys/x@0024waits_global_by_latency.frm
+kubectl
+kubectlMA1
