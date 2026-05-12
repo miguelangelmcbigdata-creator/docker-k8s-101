@@ -10,11 +10,14 @@
 
 Directorio: `labs/03-k8s-basico/laboratorio/`
 
-1. [01-manifests-base.md](laboratorio/01-manifests-base.md)
-2. [02-deploy-y-validar.md](laboratorio/02-deploy-y-validar.md)
-3. [03-kustomize-overlay.md](laboratorio/03-kustomize-overlay.md)
+1. [01-crear-cluster-kind.md](laboratorio/01-crear-cluster-kind.md)
+2. [02-crear-deployment-con-manifiestos.md](laboratorio/02-crear-deployment-con-manifiestos.md)
+3. [03-ver-pods-y-nodos.md](laboratorio/03-ver-pods-y-nodos.md)
+4. [04-exponer-app-con-service.md](laboratorio/04-exponer-app-con-service.md)
+5. [05-escalar-la-aplicacion.md](laboratorio/05-escalar-la-aplicacion.md)
+6. [06-actualizar-la-aplicacion.md](laboratorio/06-actualizar-la-aplicacion.md)
 
 ## Navegacion del libro
 
 - [Anterior](../02-docker-analitica/laboratorio/03-etl-on-demand.md)
-- [Siguiente](01-deployment-service-basico.md)
+- [Siguiente](laboratorio/01-crear-cluster-kind.md)

@@ -18,17 +18,33 @@ Este step no es solo ejecución de comandos: su objetivo es construir criterio t
 
 Si no está levantada, inicia Compose en otra terminal.
 
-### 2) Ejecutar ETL con profile
+### 2) Verificar archivo `.env`
+
+El ETL necesita variables de conexión. Comprueba que existe:
+
+`labs/02-docker-analitica/trabajo/stack-analitica/.env`
+
+Contenido mínimo esperado:
+
+```env
+POSTGRES_USER=analytics
+POSTGRES_PASSWORD=analytics
+POSTGRES_DB=analytics
+DATABASE_URL=postgresql+psycopg://analytics:analytics@db:5432/analytics
+```
+
+### 3) Ejecutar ETL con profile
 
 ```bash
 cd labs/02-docker-analitica/trabajo/stack-analitica
 docker compose --profile etl run --rm etl
 ```
 
-### 3) Verificar resultado funcional
+### 4) Verificar resultado funcional
 
 ```bash
 curl -sS http://localhost:8000/db/ping
+curl -sS http://localhost:8000/metrics
 ```
 
 ## Qué validas y qué debes ver
@@ -36,6 +52,7 @@ curl -sS http://localhost:8000/db/ping
 - El proceso ETL termina con código 0.
 - Logs del ETL muestran ejecución completa (por ejemplo `ETL OK`).
 - La API sigue operativa tras correr ETL.
+- El endpoint `/metrics` devuelve registros cargados por ETL (por ejemplo `visitas` y `ventas`) con valores que cambian en cada ejecución.
 
 ## Errores comunes
 

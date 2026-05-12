@@ -1,0 +1,19 @@
+# Referencia: Application de Argo CD apuntando a un overlay Kustomize del curso.
+# Copia a tu proyecto-final/gitops/ y ajusta repoURL, targetRevision y path.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: proyecto-final-local
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/TU_USUARIO/docker-k8s-101.git
+    targetRevision: main
+    path: labs/05-proyecto-final/trabajo/proyecto-final/k8s/overlays/local
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: analytics-data
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

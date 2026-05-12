@@ -4,7 +4,7 @@
 
 ## Descripcion del curso
 
-Curso introductorio para aprender a trabajar con contenedores y orquestacion de forma aplicada. El recorrido va desde los fundamentos de Docker hasta el despliegue y automatizacion de cargas en Kubernetes, terminando con un proyecto final integrador.
+Curso introductorio para aprender a trabajar con contenedores y orquestacion de forma aplicada. El recorrido va desde los fundamentos de Docker hasta el despliegue y automatizacion de cargas en Kubernetes, terminando con un proyecto final que **cierra y empaqueta** el stack de analitica en Kubernetes.
 
 ## Objetivos
 
@@ -16,7 +16,7 @@ Al finalizar el curso, el alumno sera capaz de:
 - Levantar stacks multi-servicio con Docker Compose.
 - Desplegar aplicaciones en Kubernetes con manifiestos y Kustomize.
 - Ejecutar procesos batch y programados con Job y CronJob.
-- Integrar un flujo completo de build y despliegue en un proyecto final.
+- Empaquetar y documentar operativamente el despliegue analitico del modulo 4, con GitOps (Argo CD) en el proyecto final.
 
 ## Perfil del alumno
 
@@ -91,16 +91,16 @@ La formacion sigue un formato progresivo y guiado:
      - Seguimiento de ejecuciones y revision de logs.
      - Comprobacion de estabilidad del pipeline batch.
 
-5. Modulo 5 - Proyecto final guiado (`labs/05-proyecto-final`)
-   - Definicion del proyecto
-     - Alcance minimo funcional y estructura de entrega.
-     - Integracion de API, ETL y despliegue.
-   - Pipeline tecnico
-     - Build de imagenes y despliegue en cluster.
-     - Uso de compose y kustomize en flujo unificado.
+5. Modulo 5 - Proyecto final (`labs/05-proyecto-final`)
+   - Cierre sobre el laboratorio 4
+     - Heredar apps y manifiestos ya validados; no reimplementar el stack.
+     - Empaquetado en `proyecto-final/` con README y trazabilidad al modulo 4.
+   - Kustomize, operacion y GitOps
+     - Base mas dos overlays con diferencias intencionales (por ejemplo local vs demo).
+     - Versionado coherente imagen-manifiesto; runbook en `docs/operaciones.md`.
+     - Argo CD: `Application` apuntando al overlay en Git; sync y estado Healthy/Synced.
    - Entrega y cierre
-     - Evidencias tecnicas y criterios de validacion final.
-     - Revision global del recorrido y buenas practicas.
+     - Evidencias reproducibles, rollback documentado y revision del recorrido.
 
 ## Roadmap del curso
 
@@ -135,8 +135,8 @@ La formacion sigue un formato progresivo y guiado:
      - Separar parametros funcionales de datos sensibles.
 
 6. Cierre con proyecto final
-   - Integrar todo el flujo en una entrega unica
-     - Build, despliegue, validacion y documentacion.
+   - Dar forma al resultado del modulo 4
+     - Kustomize multi-overlay, runbook, Argo CD y evidencias; no duplicar el laboratorio 4.
    - Consolidar criterio tecnico
      - Demostrar autonomia operativa sobre Docker y Kubernetes.
 

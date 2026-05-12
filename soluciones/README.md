@@ -5,6 +5,7 @@ Este directorio esta reservado para **referencia del instructor** (no es parte d
 Puedes anadir aqui, si lo deseas:
 
 - Manifiestos resueltos copiados de los capitulos 4-5.
+- Ejemplo de `Application` de Argo CD y capturas de UI Synced/Healthy.
 - Capturas de pantalla de validacion esperada.
 - Variantes de dificultad (por ejemplo, probes mas estrictas o limites de recursos).
 

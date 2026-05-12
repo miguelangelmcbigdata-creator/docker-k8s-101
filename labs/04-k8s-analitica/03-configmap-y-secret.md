@@ -1,26 +1,49 @@
-# ConfigMap y Secret
+# Deployment + Service + Port-forward en kind
 
 ## Objetivo
 
-Separar configuración funcional y credenciales.
+Preparar el despliegue de la app publicada en GHCR dentro de kind y visualizarla desde el host.
 
-## Archivos
+## Recursos Kubernetes que usaremos
 
-- `00-configmap-etl.yaml`
-- `01-secret-etl-db.yaml`
+### Namespace
 
-## Demo breve
+Aisla los recursos del laboratorio para limpieza y lectura de estado.
 
-```bash
-kubectl apply -f labs/04-k8s-analitica/trabajo/k8s-batch/00-configmap-etl.yaml
-kubectl apply -f labs/04-k8s-analitica/trabajo/k8s-batch/01-secret-etl-db.yaml
-kubectl -n analytics-lab get configmap,secret
-```
+### Deployment
+
+Define la imagen a ejecutar, replicas y puertos del contenedor.
+
+### Service (ClusterIP)
+
+Da endpoint estable interno. Lo expondremos localmente con `kubectl port-forward`.
+
+## Por que usar `port-forward` en este lab
+
+- Evita complejidad de Ingress para un primer despliegue.
+- Funciona igual en Codespaces, Linux, macOS y WSL.
+- Hace visible la app en navegador sin abrir NodePorts.
+
+## Validaciones operativas clave
+
+1. `kubectl get pods` -> `Running`.
+2. `kubectl rollout status` -> deployment estable.
+3. `kubectl get svc` -> service presente.
+4. `port-forward` activo en terminal.
+5. Navegador/curl responde.
+
+## Checklist de troubleshooting
+
+- `ImagePullBackOff` -> nombre/tag de imagen incorrecto o paquete privado.
+- `CrashLoopBackOff` -> revisar `kubectl logs`.
+- Service sin endpoints -> selector no coincide con labels del pod.
+- `port-forward` caido -> reiniciar comando y verificar namespace.
 
 # LABORATORIO
 
-- [01-crear-configuracion.md](laboratorio/01-crear-configuracion.md)
+- [01-crear-app-contenedora.md](laboratorio/01-crear-app-contenedora.md)
+
 ## Navegacion del libro
 
 - [Anterior](02-cronjob-etl-programado.md)
-- [Siguiente](laboratorio/01-crear-configuracion.md)
+- [Siguiente](laboratorio/01-crear-app-contenedora.md)

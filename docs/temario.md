@@ -45,4 +45,4 @@
 - Flujo completo de desarrollo local a Kubernetes.
 - Buenas practicas de versionado y reproducibilidad.
 - Introduccion ligera a EKS/GKE/AKS.
-- Lab final guiado: Notebook -> API -> Kubernetes.
+- Lab final: dar forma operativa al stack del modulo 4 (Kustomize multi-overlay, runbook, Argo CD, evidencias); alineado con `labs/05-proyecto-final`.
